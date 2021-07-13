@@ -1,2 +1,2 @@
-# SportyDataGen-App
+# SportyDataGen App
 
