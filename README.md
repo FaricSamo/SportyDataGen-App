@@ -6,3 +6,11 @@ To install SportyDataGen application (ideally into a virtualenv) just download t
 ```console
 $ python setup.py install
 ```
+
+# Quickstart
+Run the app with:
+
+```console
+$ flask run
+  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+```
