@@ -1,4 +1,13 @@
-from app import app, render_template, request
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Jun 21 14:20:20 2021
+
+@author: User
+"""
+
+from flask import Flask, redirect, url_for, render_template, request
+
+app = Flask(__name__)
 
 data = []
 
@@ -41,3 +50,6 @@ def news():
 @app.route("/addNews")
 def addNews():
     return render_template("addNews.html", title="Add news")
+
+if __name__ == "__main__":
+    app.run()
