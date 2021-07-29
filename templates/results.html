@@ -1,6 +1,53 @@
 {% extends "index.html" %} {% block content %}
 
-<h1>Data:</h1>
-<p>{{ data }}</p>
+{% if not no_data_msg %}
+<div class="container">
+<br>
+<div style="overflow-x:auto;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                {% for col in column_names %}
+                    <th>{{col}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        
+        <tbody>
+            {% set c = namespace(value=1) %}
+            {% for row in row_data %}
+            <tr>
+                <td>{{ c.value }}</td>
+                {% set c.value = c.value + 1 %}
+                
+                {% for col, row_ in zip(column_names, row) %}
+                {% if col == link_column %}
+                <td>
+                    {{ row_ }}
+                </td>
+                {% else %}
+                <td>{{row_}}</td>
+                {% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 
+<div style="display: flex; justify-content: space-between;">
+    <form action="/download" method="POST">
+        <button type="Submit" class="downBtn"><i class="fa fa-download"></i> Download CSV</button>
+    </form>
+    <p class="fw-bold" align="right">Generated on: {{ current_time }}</p>
+</div>
+
+{% endif %}
+
+<br>
+<p class="fw-bold" align="center">{{ no_data_msg }}</p>
+<br>
+
+</div>
 {% endblock %}

@@ -6,46 +6,55 @@
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-lg-8">
+                <p class="fw-bold" align="center">Select parameters of sport data generator:</p>
                 <form action="/results" method="POST" class="card p-3 bg-light">
                     <div class="form-group">
-                        <label for="sport">Sport</label>
-                        <select class="form-control" id="sport" name="sport">
+                        <label for="activity_type">Sport</label>
+                        <select class="form-control" id="activity_type" name="activity_type">
                           <option>Biking</option>
                           <option>Running</option>
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="activities" class="form-label">Number of activities</label>
-                        <input type="text" class="form-control" id="activities" name="activities">
+                        <label for="number_activities" class="form-label">Number of activities</label>
+                        <input type="text" class="form-control" id="number_activities" name="number_activities">
+                        
+                        {% if input_msg %}
+                            <br>
+                            <div class="alert alert-danger" role="alert">
+                              {{ input_msg }}
+                            </div>
+                        {% endif %}
+                        
                     </div>
                     <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="workDuration" name="workDuration">
-                        <label class="form-check-label" for="workDuration">Duration of workout</label>
+                        <input type="checkbox" class="form-check-input" id="duration" name="duration">
+                        <label class="form-check-label" for="duration">Duration of workout</label>
                     </div>
                     <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="workDistance" name="workDistance">
-                        <label class="form-check-label" for="workDistance">Distance of workout</label>
+                        <input type="checkbox" class="form-check-input" id="distance" name="distance">
+                        <label class="form-check-label" for="distance">Distance of workout</label>
                     </div>
                     <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="avgHeartRate" name="avgHeartRate">
-                        <label class="form-check-label" for="avgHeartRate">Average heart rate</label>
+                        <input type="checkbox" class="form-check-input" id="heart_rate" name="heart_rate">
+                        <label class="form-check-label" for="heart_rate">Average heart rate</label>
                     </div>
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="calories" name="calories">
                         <label class="form-check-label" for="calories">Calories</label>
                     </div>
                     <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="avgAltitude" name="avgAltitude">
-                        <label class="form-check-label" for="avgAltitude">Average altitude</label>
+                        <input type="checkbox" class="form-check-input" id="avg_altitude" name="avg_altitude">
+                        <label class="form-check-label" for="avg_altitude">Average altitude</label>
                     </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="maxAltitude" name="maxAltitude">
-                        <label class="form-check-label" for="maxAltitude">Max altitude</label>
+                    <!--<div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="max_altitude" name="max_altitude">
+                        <label class="form-check-label" for="max_altitude">Max altitude</label>
                     </div>
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="pace" name="pace">
                         <label class="form-check-label" for="pace">Pace</label>
-                    </div>
+                    </div>-->
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="ascent" name="ascent">
                         <label class="form-check-label" for="ascent">Ascent</label>
@@ -54,7 +63,7 @@
                         <input type="checkbox" class="form-check-input" id="descent" name="descent">
                         <label class="form-check-label" for="descent">Descent</label>
                     </div>
-                    <div class="form-group">
+                    <!--<div class="form-group">
                         <label for="intensity">Intensity</label>
                         <select class="form-control" id="intensity" name="intensity">
                           <option>0</option>
@@ -93,8 +102,8 @@
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="allowMissData" name="allowMissData">
                         <label class="form-check-label" for="allowMissData">Allow missing data</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>-->
+                    <button type="submit" class="btn btn-primary">Generate</button>
                 </form>
                 <br>
             </div>
