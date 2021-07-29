@@ -31,7 +31,7 @@ def home():
 @app.route("/results", methods=("POST", "GET"))
 def results():
     
-    #try:
+    try:
         all_parameters = {}
         selected_parameters = {}
         df_col = []
@@ -92,8 +92,8 @@ def results():
                 return render_template("results.html", title="Generated data", no_data_msg=no_data_msg, df_col=df_col)
         else:
             return render_template("generator.html", title="Generated data", input_msg="Input must be integer")
-    #except:
-      #return render_template("error.html", title="Generated data")
+    except:
+      return render_template("error.html", title="Generated data")
   
 @app.route("/download", methods=["POST"])
 def download():
