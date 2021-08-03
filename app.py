@@ -119,13 +119,5 @@ def home2():
 def about():
     return render_template("about.html", title="About")
 
-@app.route("/news")
-def news():
-    return render_template("news.html", title="News")
-
-@app.route("/addNews")
-def addNews():
-    return render_template("addNews.html", title="Add news")
-
 if __name__ == "__main__":
     app.run()
