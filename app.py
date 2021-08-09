@@ -47,12 +47,17 @@ def results():
         #pace = request.form.get("pace")
         ascent = request.form.get("ascent")
         descent = request.form.get("descent")
+        number_of_hills = request.form.get("number_of_hills")
+        distance_between_hills = request.form.get("distance_between_hills")
+        number_of_intervals = request.form.get("number_of_intervals")
+        average_interval_duration = request.form.get("average_interval_duration")
+        longest_interval = request.form.get("longest_interval")
         #intensity = request.form.get("intensity")
         #clusters = request.form.get("clusters")
         #approach = request.form.get("approach")
         #allowMissData = request.form.get("allowMissData")
         
-        all_parameters.update({"duration":duration, "distance":distance, "heart_rate":heart_rate, "calories":calories, "avg_altitude":avg_altitude, "max_altitude":max_altitude, "ascent":ascent, "descent":descent})
+        all_parameters.update({"duration":duration, "distance":distance, "heart_rate":heart_rate, "calories":calories, "avg_altitude":avg_altitude, "max_altitude":max_altitude, "ascent":ascent, "descent":descent, "number_of_hills":number_of_hills, "distance_between_hills":distance_between_hills, "number_of_intervals":number_of_intervals, "average_interval_duration":average_interval_duration, "longest_interval":longest_interval})
         #all_parameters = {activity_type, number_activities, duration, distance, hr_avg, calories, altitude_avg, altitude_max, pace, ascent, descent, allowMissData}
         
         if number_activities.isnumeric():
