@@ -39,7 +39,8 @@
 <div style="display: flex; justify-content: space-between;">
     <form action="/download" method="POST">
         <button type="Submit" class="downBtn"><i class="fa fa-download"></i> Download CSV</button>
-    </form>
+    </form>    
+    <p class="fw-bold" style="color:red;">{{ activities_msg }}</p>
     <p class="fw-bold" align="right">Generated on: {{ current_time }}</p>
 </div>
 

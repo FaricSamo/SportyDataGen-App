@@ -1,0 +1,49 @@
+{% extends "index.html" %} {% block content %}
+
+<br>
+
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-lg-8">
+            <form action="" method="POST" class="card p-3 bg-light">
+                {{form.hidden_tag()}}
+                
+                <div class="form-group m-1">
+                   {{form.username.label()}}
+                   {{form.username(class="form-control")}}
+                </div>
+                <div class="form-group m-1">
+                    {{form.password.label()}}
+                    {{form.password(class="form-control")}}
+                </div>
+                <div class="form-group m-1">
+                    <a href="{{(url_for('register'))}}">Don't have an account? Sign Up</a><br>
+                </div>
+                {{form.submit(class="btn-lg btn-primary m-1")}}
+            </form>
+            
+            {% if login_failed %}
+                <br>
+                <div class="alert alert-danger" role="alert">
+                  {{ login_failed }}
+                </div>
+            {% endif %}
+            
+            <p>
+            	{% with messages = get_flashed_messages() %}
+            	  {% if messages %}
+            		<div class=flashes>
+            		{% for message in messages %}
+            		  <p style="color:red;">{{ message }}</p>
+            		{% endfor %}
+            		</div>
+            	  {% endif %}
+            	{% endwith %}
+            </p>
+        </div>
+    </div>
+</div>
+
+<br> 
+
+{% endblock %}

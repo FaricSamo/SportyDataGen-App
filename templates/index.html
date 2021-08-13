@@ -33,6 +33,21 @@
                     <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
+                    {% if not current_user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/register">Sign Up</a></li>
+                    {% endif %}
+                    {% if current_user.is_authenticated %}
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            You are logged in as {{ current_user.username }}
+                          </a>
+                          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/upload">Upload</a></li>
+                            <li><a class="dropdown-item" href="/logout">Log Out</a></li>
+                          </ul>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
